@@ -3,6 +3,6 @@ pragma solidity ^0.8.20;
 
 contract SimpleResponder {
     function respondCallback(uint256 amount) public {
-        // PoC: The Trap triggered, the Responder was called.
+        // PoC: Trap triggered, Responder was called
     }
 }

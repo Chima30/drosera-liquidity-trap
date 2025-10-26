@@ -6,8 +6,8 @@ drosera_address = "0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"
 [traps]
 
 [traps.liquidity_trap]
-path = "./LiquidityTrap_clean.json"
-response_contract = "0xe30EfE83302319D39e9a95431E55c397eecc74AF"
+path = "out/LiquidityTrap.sol/LiquidityTrap.json"
+response_contract = "0x09C6c345B1bBE743E62A34A2094664C69abbA78E"
 response_function = "respondCallback(uint256)"
 cooldown_period_blocks = 33
 min_number_of_operators = 1
@@ -15,4 +15,4 @@ max_number_of_operators = 2
 block_sample_size = 10
 private_trap = true
 whitelist = ["0xa3d7f5e1191941de22778a550f0ca4e2497cb7c8"]
-address = "0x92e0197C8096669F5280d4d2Cf33729F7FA76f05"
+address = "0x4568A9B8EE9Ab52272B8b9D616a071ab14fD4c0A"
