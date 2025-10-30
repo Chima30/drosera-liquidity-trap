@@ -20,14 +20,25 @@ contract LiquidityTrap is ITrap {
         return abi.encode(r0, r1);
     }
 
-    // ✅ Updated to match Drosera's expected ABI
-    function shouldRespond(bytes[] calldata data) external pure override returns (bool, bytes memory) {
+    // ✅ Adjusted: produces one metric matching respondCallback(uint256)
+    function shouldRespond(bytes[] calldata data)
+        external
+        pure
+        override
+        returns (bool, bytes memory)
+    {
         if (data.length == 0) {
             return (false, "");
         }
+
         (uint112 r0, uint112 r1) = abi.decode(data[0], (uint112, uint112));
         bool low = (r0 < 100 ether || r1 < 100_000 * 10**6);
-        return (low, data[0]);
+
+        if (low) {
+            uint256 metric = uint256(r0) < uint256(r1) ? r0 : r1;
+            return (true, abi.encode(metric)); // ✅ single value for responder
+        }
+
+        return (false, "");
     }
 }
-
